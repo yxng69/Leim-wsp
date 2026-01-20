@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contactando Asesora...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: #f0f2f5; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+    
+    <div style="text-align: center; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <p style="font-size: 18px; color: #333;">Te estamos asignando una asesora...</p>
+        <div style="border: 4px solid #f3f3f3; border-top: 4px solid #25D366; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto;"></div>
+        <p style="font-size: 14px; color: #666;">Si no redirige, <a href="#" onclick="redireccionar(event)">haz clic aquí</a>.</p>
+    </div>
+
+    <style>
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+
+    <script>
+        // LISTA DE ASESORAS
+        var asesoras = [
+            "51931808582", // Cristine
+            "51936000635", // Mariana
+            "51997835931", // Maritza
+            "51991007870", // Mirtha
+            "51981311721"  // Samanda
+        ];
+
+        // MENSAJE PREDEFINIDO (Puedes cambiar el texto entre comillas)
+        var mensaje = "Hola, vi su enlace en Linktree y quisiera información.";
+
+        function redireccionar(e) {
+            if(e) e.preventDefault();
+            // Elegir asesora al azar
+            var numeroAleatorio = asesoras[Math.floor(Math.random() * asesoras.length)];
+            // Crear link
+            var url = "https://wa.me/" + numeroAleatorio + "?text=" + encodeURIComponent(mensaje);
+            // Redirigir
+            window.location.href = url;
+        }
+
+        // Ejecutar inmediatamente al cargar
+        setTimeout(redireccionar, 1000); // Espera 1 segundo para que el usuario lea el mensaje
+    </script>
+</body>
+</html>
